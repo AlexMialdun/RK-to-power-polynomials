@@ -49,7 +49,7 @@ Both $P_n$ and $P'_n$ coefficients are determined with use of the binomial theor
 A typical usage of the library is given in the `example.py`. 
 Along with the standard libraries, the present one is imported by 
 ```python
-import libPolynomRK as rk
+import libPolyRK as rk
 ```
 After loading and plotting the original numeric data, the R-K coefficients $A$ are determined by 
 ```python
