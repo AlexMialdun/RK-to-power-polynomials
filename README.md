@@ -11,29 +11,37 @@ The example is given for the excess volume data `rho_TEG-Wat_Guo2012.txt` taken 
 ## Redlich-Kister polynomials
 First suggested in Ref.[^2], the polynomials appeared extremely useful for representing and parameterizing of excess properties in binary mixtures, depending on their fractional concentration (say, molar fraction $x$, varying in the range from 0 to 1). 
 A typical modern presentation of R-K polynomials for description of an excess property $Y^E$ versus the fractional concentration $x$ is:
+
 $$
 Y^E = x_1 (1-x_1) \sum_{n=0}^N A_n (2 x_1 - 1)^n
 $$
+
 where $A_n$ are the R-K polynomial coefficients. 
 Such representation does naturally lead to vanishing of $Y^E$ at the extremes $x_1=0$ and $x_1=1$. Here $x_1$ denotes concentration of the component '1', while the fractional concentration of the component '2' is $x_2 = 1 - x_1$. 
 It results in another equivalent representation of $Y^E$ versus concentration of the second component as:
+
 $$
 Y^E = x_2 (1-x_2) \sum_{n=0}^N A_n (1 - 2 x_2)^n
 $$
+
 It is common to search for the $A_n$ coefficients by the least square regression. 
 Here, it is implemented with `scipy.optimize.minimize` function by applying the 'nelder-mead' method. 
 
 While very comfortable for the excess property description, the R-K representation is less convenient for other possible functional manipulations, such as analytic derivation. 
 Therefore, in some cases, a translation to ordinary power series polynomials might be needed. 
 This conversion has to provide the power series polynomial coefficients $P_n$ which satisfy equality 
+
 $$
 x_2 (1-x_2) \sum_{n=0}^N A_n (1 - 2 x_2)^n = \sum_{n=0}^{N+2} P_n x_2^n
 $$
+
 In case of a small power $N$, the coefficients $P_n$ can be found by a simple manual algebra. The **RK-to-power-polynomials** library, from the other hand, offers a general automated transformation of the polynomial of an arbitrary order $N$. 
 Besides, sometimes it is useful to find the power series polynomial coefficients $P'_n$, corresponding to 'reduced'/truncated R-K polynomial, such as  
+
 $$
 \sum_{n=0}^N A_n (1 - 2 x_2)^n = \sum_{n=0}^{N} P'_n x_2^n
 $$
+
 The library offers a function for determining of $P'_n$ as well. 
 Both $P_n$ and $P'_n$ coefficients are determined with use of the binomial theorem, more details can be found in Appendix to the paper[^3].
 
