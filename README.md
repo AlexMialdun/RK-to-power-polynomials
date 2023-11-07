@@ -73,7 +73,9 @@ P_prime = rk.polyConvRK2powerReduc(A)
 
 The example presents fitting the original data to R-K polynomial of 3-rd order, and finding the equivalent power series polynomial coefficients of 5-th order. 
 Then, the identity of both polynomial representations is evidenced in the plotted figure: 
-![plot](file:///./img/VE-x_TEG-Wat_fit.png)
+
+![plot](./img/VE-x_TEG-Wat_fit.png)
+
 
 ## References
 [^1]: Guo, Z. et al. (2012) ‘Liquid viscosities, excess properties, and viscous flow thermodynamics of triethylene glycol+water mixtures at T=(298.15, 303.15, 308.15, 313.15, and 318.15) K’, Journal of Molecular Liquids, 165, pp. 27–31. Available at: https://doi.org/10.1016/j.molliq.2011.10.003.
